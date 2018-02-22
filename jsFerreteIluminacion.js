@@ -11,33 +11,58 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
 function CalcularPrecio () 
 {
     var cantidad;
-    cantidad= document.getElementById("Cantidad").value;
-    var precio=35;
-    var descuento;
-    var resultado;
     var marca;
-    marca=document.getElementById("Marca").value;
-    var precioBruto;
-    precioBruto=
+    var descuento;
+    var importe;
+    var importeFinal;
 
-    if (cantidad>5)
-    {
-        descuento=0.5;
-        resultado=cantidad*precio*descuento;
-        document.getElementById("precioDescuento").value=resultado;              
-    }           
-    else
-    {
-        if (cantidad==5)
-        if(marca=="ArgentinaLuz")
-        descuento=0.4;
-        resultado=precio*cantidad*descuento;
-        document.getElementById("precioDescuento").value=resultado; 
-    }          
+    cantidad=document.getElementById("Cantidad").value;
+    marca=document.getElementById("Marca").value;
+    cantidad=parseInt(cantidad)
+    importe=cantidad*35;
+    
+    if(cantidad>=6){
+            descuento=importe*0.5;
+        }else if(cantidad==5 && marca=="ArgentinaLuz"){
+            descuento=importe*0.4;
+        }else if(cantidad==5){
+            descuento=importe*0.3;
+        }else if(cantidad==4)
+        if(marca=="ArgentinaLuz"|| marca=="FelipeLamparas"){
+            descuento=importe*0.25;
+        }else{
+            descuento=importe*0.20;
+        }
+        else if(cantidad==3){
+            switch(marca){
+                case "ArgentinaLuz":
+                descuento=importe*0.15;
+                break;
+                case "FelipeLamparas":
+                descuento=importe*0.10;
+                break;
+                default:
+                descuento=importe*0.05;
+            }
+        } importeFinal=importe-descuento;
+        if(importeFinal>120){
+            importeFinal=importeFinal*1.10;
+            alert("");
+        }else{
+            alert("");
+        }
+    
+    
                 
                 
-                
-                
+               
+    
+
+
+
+
+
+
                 /*break;   
 
             case "5": 
@@ -88,4 +113,3 @@ switcg(marca)
 }
  if else if else if else primero
  switch con cantidad
- s
