@@ -10,33 +10,65 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
-    var precio=35;
     var descuento;
-    var cantidad;
-    var precioDescuento;
-    var precioBruto;
-  
-    cantidad=document.getElementById("Cantidad").value;
-    marca=document.getElementById("Marca").value;
+    var importe;
+    var importeFinal;
     
-    if(cantidad>5)
-     {
-         descuento=0.5;
-     }
-    else
-    {
-        if(marca=="ArgentinaLuz")
-        {
-            descuento=0.40;
+    cantidad=document.getElementById("Cantidad").value;
+    cantidad=parseInt(cantidad)
+    
+    importe=cantidad*35;
+    
+        if(cantidad>=6){
+
+            descuento=importe*0.5;
+
+        }else if(cantidad==5 && marca=="ArgentinaLuz"){
+            
+            descuento=importe*0.4;
+        
+        }else if(cantidad==5){
+            
+            descuento=importe*0.3;
+        
+        }else if(cantidad==4)
+        
+        if(marca=="ArgentinaLuz"|| marca=="FelipeLamparas"){
+            
+            descuento=importe*0.25;
+
+        }else{
+            
+            descuento=importe*0.20;
         }
-        else
-        {
-            descuento=0.30;
-        }
+        else if(cantidad==3){
+            
+            switch(marca){
+                
+                case "ArgentinaLuz":
+                        descuento=importe*0.15;
+                    break;
+                case "FelipeLamparas":
+                        descuento=importe*0.10;
+                    break;
+                default:
+                descuento=importe*0.05;
+            }
+        } importeFinal=importe-descuento;
+        
+        if(importeFinal>120){
+           
+            importeFinal=importeFinal*1.10;
+            
+            alert("");
+       
+        }else{
+           
+            alert("");
+                
+        }        
+         
     }
-}
-                
-                
                 
                 /*break;   
 
@@ -87,4 +119,4 @@ switcg(marca)
         porcentaje=0.5;
 }
  if else if else if else primero
- switch con cantidad
+ switch con cantidad*/
