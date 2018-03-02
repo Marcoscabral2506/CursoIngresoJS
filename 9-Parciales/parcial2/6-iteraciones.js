@@ -7,7 +7,10 @@ function Mostrar()
 	
 
 	while(contador<7)
-	{
+	{	
+		contador++;
+		importe=prompt("ingrese importe");
+		importe=parseInt(importe);
 		while(importe<0){
 		importe=prompt("ingrese importe");
 		importe=parseInt(importe);
